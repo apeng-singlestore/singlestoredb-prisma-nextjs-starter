@@ -1,27 +1,27 @@
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
-  provider     = "mysql"
+  provider     = "mongodb"
   url          = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
 }
 
 model User {
-  id    Int    @id @default(autoincrement())
-  name  String
-  email String
-  posts Post[] @relation("UserPosts")
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  email String @unique
+  name  String?
+  posts Post[]
 }
 
 model Post {
-  id        Int     @id @default(autoincrement())
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   title     String
-  content   String
+  content   String?
   published Boolean @default(false)
-  viewCount Int     @default(0)
-  authorId  Int
-  author    User    @relation("UserPosts", fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  viewCount Int @default(0)
+  author    User? @relation(fields: [authorId], references: [id])
+  authorId  String? @db.ObjectId
 }
