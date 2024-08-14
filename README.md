@@ -75,7 +75,7 @@ This example demonstrates how to implement a **fullstack app with [SingleStore K
 
 You can deploy this app to the cloud with [Vercel](https://vercel.com/) ([Documentation](https://nextjs.org/docs/deployment)).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcockroachdb%2Fprisma-examples%2Ftree%2Flatest%2Fjavascript%2Frest-nextjs&integration-ids=oac_h3yNIuHlhe4j9QVzVJ3TS2W0&build-command=yarn%20prisma%20db%20push%20%26%26%20yarn%20next%20build)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fapeng-singlestore%2Fsinglestoredb-prisma-nextjs-starter&integration-ids=oac_h3yNIuHlhe4j9QVzVJ3TS2W0&build-command=yarn%20prisma%20db%20push%20%26%26%20yarn%20next%20build)
 
 ## Notes
 
