@@ -6,7 +6,7 @@ const Post = ({ post }) => {
   return (
     <div onClick={() => Router.push('/p/[id]', `/p/${post.id}`)}>
       <h2>{post.title}</h2>
-      <small>By {authorName}</small>
+      <small>By <a href={`/user/${post.author.id}`}>{authorName}</a></small>
       <ReactMarkdown children={post.content} />
       <style jsx>{`
         div {
