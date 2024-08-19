@@ -1,0 +1,51 @@
+generator client {
+  provider     = "prisma-client-js"
+  relationMode = "prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model Post {
+  id   Unsupported("bson") @map("_id")
+  more Unsupported("bson") @map("_more")
+  id   Bytes?              @unique(map: "__PRIMARY") @map("$_id")
+
+  @@index([id], map: "__SHARDKEY")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model User {
+  id   Unsupported("bson") @map("_id")
+  more Unsupported("bson") @map("_more")
+  id   Bytes?              @unique(map: "__PRIMARY") @map("$_id")
+
+  @@index([id], map: "__SHARDKEY")
+  @@ignore
+}
+
+model User {
+  id    String @id @default(uuid())
+  email String 
+  name  String?
+  posts Post[]
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now()) @db.DateTime(0)
+  updatedAt DateTime @updatedAt @db.DateTime(0)
+  title     String
+  content   String?  @db.Text
+  published Boolean  @default(false)
+  viewCount Int      @default(0)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String
+
+}
