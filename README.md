@@ -1,6 +1,6 @@
 # Fullstack Example with Next.js and SingleStore Kai (REST API)
 
-This example demonstrates how to implement a **fullstack app with [SingleStore Kai](https://www.singlestore.com/cloud-database/), [Next.js](https://nextjs.org/)** using [React](https://reactjs.org/) (frontend), [Express](https://expressjs.com/) and [Prisma Client](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client) (backend). It uses SingleStore's MongoDB compatibility layer to work with Prisma ORM.
+This example demonstrates how to implement a **fullstack app with [SingleStore Kai](https://www.singlestore.com/kai/), [Next.js](https://nextjs.org/)** using [React](https://reactjs.org/) (frontend), [Express](https://expressjs.com/) and [Prisma Client](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client) (backend). It uses SingleStore's MongoDB compatibility layer to work with Prisma ORM.
 
 ## Prerequisites
 
